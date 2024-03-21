@@ -5,8 +5,6 @@ export default function PreviewPanel({
   campaignDescription,
   options,
 }) {
-  //   console.log(options);
-
   const rowsData = options.map((option) => {
     const row = [];
     row.push(option.title);
@@ -15,9 +13,8 @@ export default function PreviewPanel({
     row.push(option.amount);
     return row;
   });
-  //   console.log(rowsData);
   return (
-    <Card>
+    <Box shadow="300" background="bg-fill" padding={"500"} borderRadius="200">
       <Text variant="headingMd" alignment="start">
         Preview
       </Text>
@@ -37,6 +34,6 @@ export default function PreviewPanel({
         rows={rowsData}
       />
       <Box padding={200}></Box>
-    </Card>
+    </Box>
   );
 }

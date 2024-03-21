@@ -1,4 +1,4 @@
-import { Layout, TextField, Select, Text } from "@shopify/polaris";
+import { Text } from "@shopify/polaris";
 import styled from "styled-components";
 const Input = ({
   label,
@@ -17,9 +17,11 @@ const Input = ({
   return (
     <InputWrapper>
       <Text variant="bodyLg" fontWeight="semiBold" alignment="start">
-        {label.charAt(0).toUpperCase() +
-          label.slice(1) +
-          `${unit ? "(" + unit + ")" : ""}`}
+        {isSelect
+          ? "Discount Type"
+          : label.charAt(0).toUpperCase() +
+            label.slice(1) +
+            `${unit ? "(" + unit + ")" : ""}`}
       </Text>
       {isSelect ? (
         <StyledSelect {...register(`options.${optionNumber - 1}.${label}`)}>

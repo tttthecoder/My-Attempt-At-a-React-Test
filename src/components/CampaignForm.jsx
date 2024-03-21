@@ -2,11 +2,13 @@ import {
   Layout,
   Button,
   Page,
-  Card,
   Text,
+  Icon,
   Box,
   Divider,
+  InlineStack,
 } from "@shopify/polaris";
+import { ArrowLeftIcon } from "@shopify/polaris-icons";
 import React from "react";
 import styled from "styled-components";
 import OptionGroup from "./UI/OptionGroup";
@@ -124,10 +126,25 @@ export default function CampaignForm() {
   }
   return (
     <Page fullWidth>
+      <InlineStack blockAlign="center" align="start" gap={"200"}>
+        <Box padding={"100"} borderRadius="100" borderWidth="1px">
+          <Icon source={ArrowLeftIcon}></Icon>
+        </Box>
+
+        <Text alignment="start" variant="headingXl">
+          Create Volume Discount
+        </Text>
+        <Box minHeight="60px"></Box>
+      </InlineStack>
       <Layout>
         <Layout.Section variant="twoThird">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Box background="bg-fill" padding={"500"} borderRadius="200">
+            <Box
+              shadow="300"
+              background="bg-fill"
+              padding={"500"}
+              borderRadius="200"
+            >
               <Text variant="headingMd" alignment="start">
                 General
               </Text>
@@ -179,9 +196,10 @@ export default function CampaignForm() {
             ))}
             <Box
               background="bg-fill"
-              padding={"400"}
+              padding={"300"}
               borderEndEndRadius="200"
               borderEndStartRadius="200"
+              color="bg-fill"
             >
               <ButtonWrapper>
                 <Button
@@ -195,20 +213,8 @@ export default function CampaignForm() {
                 </Button>
               </ButtonWrapper>
             </Box>
-            <Box
-              // position="fixed"
-              padding={"500"}
-              // insetInlineEnd={"1200"}
-              // insetBlockEnd={"1200"}
-              // background="bg-fill-success"
-              // color="secondary"
-            >
-              <Button
-                tone="success"
-                // variant="monochrome"
-                size="large"
-                submit={"submit"}
-              >
+            <Box padding={"500"}>
+              <Button tone="success" size="large" submit={"submit"}>
                 Save Campaign
               </Button>
             </Box>
@@ -227,7 +233,9 @@ export default function CampaignForm() {
 }
 
 const ButtonWrapper = styled.div`
-  height: 30px;
+  display: flex;
+  height: 36px;
+
   border-radius: 4px;
   background-color: rgba(239, 77, 47, 1);
 `;
